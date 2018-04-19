@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/packages
+/.vs
+/RestApplication/bin
+/RestApplication/obj/Debug
+/RestApplication.Common/obj/Debug
+/RestApplication.DataAccess.Interfaces/obj/Debug
+/RestApplication.DataAccess.MssqlProvider/obj/Debug
+/RestApplication.DomainModel/obj/Debug
+/RestApplication.Services/obj/Debug
+/RestApplication.Tests/bin/Debug
+/RestApplication.Tests/obj/Debug
