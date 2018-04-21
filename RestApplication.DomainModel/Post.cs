@@ -4,10 +4,6 @@ namespace RestApplication.DomainModel
 {
 	public class Post : Entity
     {
-		public ICollection<Comment> Comments { get; set; }
-		//public Post()
-		//{
-		//	Comments = new List<Comment>();
-		//}
+		public virtual ICollection<Comment> Comments { get; set; }
     }
 }
