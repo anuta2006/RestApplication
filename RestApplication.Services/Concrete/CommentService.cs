@@ -4,6 +4,7 @@ using RestApplication.Services.Infrastructure;
 using RestApplication.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace RestApplication.Services.Concrete
 {
@@ -37,6 +38,16 @@ namespace RestApplication.Services.Concrete
 			_dbSession.Save();
 		}
 
+		public async Task DeleteAsync(int? id)
+		{
+			if (id == null)
+			{
+				throw new ArgumentNullException("id");
+			}
+			await _dbSession.Comments.DeleteAsync(id.Value);
+			_dbSession.Save();
+		}
+
 		public Comment Get(int? id)
 		{
 			if (id == null)
@@ -44,6 +55,15 @@ namespace RestApplication.Services.Concrete
 				throw new ArgumentNullException("id");
 			}
 			return _dbSession.Comments.Get(id.Value) ?? throw new ValidationException($"Comment with id={id} is not found", "");
+		}
+
+		public async Task<Comment> GetAsync(int? id)
+		{
+			if (id == null)
+			{
+				throw new ArgumentNullException("id");
+			}
+			return await _dbSession.Comments.GetAsync(id.Value) ?? throw new ValidationException($"Comment with id={id} is not found", "");
 		}
 
 		public IEnumerable<Comment> GetAll()

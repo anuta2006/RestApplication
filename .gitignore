@@ -13,3 +13,13 @@
 /RestApplication.Services/obj/Debug
 /RestApplication.Tests/bin/Debug
 /RestApplication.Tests/obj/Debug
+/RestApplication.Common/bin/Debug
+/RestApplication.DataAccess.Interfaces/bin/Debug
+/RestApplication.DataAccess.MssqlProvider/bin/Debug
+/RestApplication.DomainModel/bin/Debug
+/RestApplication.Services/bin/Debug
+/RestApplication.Web/App_Data
+/RestApplication.Web.Tests/obj/Debug
+/RestApplication.Web/bin
+/RestApplication.Web/Log/2018-04-22.log
+/RestApplication.Web/obj/Debug

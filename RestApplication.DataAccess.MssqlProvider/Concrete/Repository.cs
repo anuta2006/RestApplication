@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace RestApplication.DataAccess.MssqlProvider.Concrete
 {
@@ -31,6 +32,15 @@ namespace RestApplication.DataAccess.MssqlProvider.Concrete
 			}
 		}
 
+		public async Task DeleteAsync(int id)
+		{
+			TEntity entity = await dbContext.Set<TEntity>().FindAsync(id);
+			if (entity != null)
+			{
+				dbContext.Set<TEntity>().Remove(entity);
+			}
+		}
+
 		public IEnumerable<TEntity> Find(Func<TEntity, bool> predicate)
 		{
 			return dbContext.Set<TEntity>().Where(predicate);
@@ -39,6 +49,11 @@ namespace RestApplication.DataAccess.MssqlProvider.Concrete
 		public TEntity Get(int key)
 		{
 			return dbContext.Set<TEntity>().FirstOrDefault(item => item.Id == key);
+		}
+
+		public async Task<TEntity> GetAsync(int key)
+		{
+			return await dbContext.Set<TEntity>().FirstOrDefaultAsync(item => item.Id == key);
 		}
 
 		public IEnumerable<TEntity> GetAll()
